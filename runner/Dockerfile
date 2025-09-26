@@ -1,6 +1,6 @@
 FROM alpine:3
 
-RUN apk add --update --no-cache docker-cli docker-cli-compose git bash
+RUN apk add --update --no-cache docker-cli docker-cli-compose git bash vim
 
 ENV \
 	WS_ORIGIN=localhost

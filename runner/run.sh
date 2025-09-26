@@ -2,7 +2,7 @@
 set -xe
 
 rm -rf repo
-git clone --branch feat-docker-entry https://github.com/gampnico/Bokeh-Docker.git repo
+git clone --branch feat-test-dashboard https://github.com/gampnico/Bokeh-Docker.git repo
 cd repo/bokeh.oggm.org
 
 docker compose down --remove-orphans

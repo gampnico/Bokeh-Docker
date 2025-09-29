@@ -100,16 +100,18 @@ services:
   #     - "traefik.http.routers.dtcg_l2_dashboard-app.rule=PathPrefix(`/dtcg_l2_dashboard`)"
 
   dockerception-app:
-    image: "ghcr.io/oggm/bokeh:20250915"
-    container_name: "dockerception-app"
-    command:
-      - "git+https://github.com/gampnico/bokeh-dockerception.git@feat-docker-entry"
-      - "src/dockerception/app.py"
-    environment:
-      - "BOKEH_PREFIX=/dockerception"
-      - "BOKEH_ALLOW_WS_ORIGIN=${WS_ORIGIN}"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.services.dockerception-app.loadbalancer.server.port=8080"
-      - "traefik.http.routers.dockerception-app.entrypoints=web"
-      - "traefik.http.routers.dockerception-app.rule=PathPrefix(`/dockerception`)"
+      image: "ghcr.io/oggm/bokeh:20250915"
+      container_name: "dockerception-app"
+      build:
+        context: https://github.com/gampnico/bokeh-dockerception.git#feat-docker-entry
+        args:
+          - "BOKEH_PREFIX=/dockerception"
+          - "BOKEH_ALLOW_WS_ORIGIN=${WS_ORIGIN}"
+      environment:
+        - "BOKEH_PREFIX=/dockerception"
+        - "BOKEH_ALLOW_WS_ORIGIN=${WS_ORIGIN}"
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.services.dockerception-app.loadbalancer.server.port=8080"
+        - "traefik.http.routers.dockerception-app.entrypoints=web"
+        - "traefik.http.routers.dockerception-app.rule=PathPrefix(`/dockerception`)"

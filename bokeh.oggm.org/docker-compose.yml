@@ -104,6 +104,7 @@ services:
     container_name: "dockerception-app"
     command:
       - "git+https://github.com/gampnico/bokeh-dockerception.git@feat-docker-entry"
+      - "src/dtcgweb/app.py"
     environment:
       - "BOKEH_PREFIX=/dockerception"
       - "BOKEH_ALLOW_WS_ORIGIN=${WS_ORIGIN}"

@@ -39,20 +39,20 @@ services:
   #     - "traefik.http.routers.simulator-app.entrypoints=web"
   #     - "traefik.http.routers.simulator-app.rule=PathPrefix(`/simulator`)"
 
-  # explorer-app:
-  #   image: "oggm/bokeh:20191210"
-  #   container_name: "explorer-app"
-  #   command:
-  #     - "git+https://github.com/OGGM/world-glacier-explorer.git@v1.6"
-  #     - "app.ipynb"
-  #   environment:
-  #     - "BOKEH_PREFIX=/explorer"
-  #     - "BOKEH_ALLOW_WS_ORIGIN=${WS_ORIGIN}"
-  #   labels:
-  #     - "traefik.enable=true"
-  #     - "traefik.http.services.explorer-app.loadbalancer.server.port=8080"
-  #     - "traefik.http.routers.explorer-app.entrypoints=web"
-  #     - "traefik.http.routers.explorer-app.rule=PathPrefix(`/explorer`)"
+  explorer-app:
+    image: "oggm/bokeh:20191210"
+    container_name: "explorer-app"
+    command:
+      - "git+https://github.com/OGGM/world-glacier-explorer.git@v1.6"
+      - "app.ipynb"
+    environment:
+      - "BOKEH_PREFIX=/explorer"
+      - "BOKEH_ALLOW_WS_ORIGIN=${WS_ORIGIN}"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.explorer-app.loadbalancer.server.port=8080"
+      - "traefik.http.routers.explorer-app.entrypoints=web"
+      - "traefik.http.routers.explorer-app.rule=PathPrefix(`/explorer`)"
 
   # mb_simulator-app:
   #   image: "oggm/bokeh:20211010"

@@ -6,5 +6,7 @@ ENV \
 	WS_ORIGIN=bokeh.oggm.org
 
 COPY run.sh /root/run.sh
+COPY repo/ /root/repo/
+
 WORKDIR /root
 ENTRYPOINT ["/root/run.sh"]

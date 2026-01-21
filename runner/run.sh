@@ -10,7 +10,7 @@ docker compose down --remove-orphans
 docker compose pull
 docker compose build --pull
 docker compose up -d
-docker system prune -a -f
+# docker system prune -a -f
 
 while true; do
 	sleep 300

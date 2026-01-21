@@ -7,6 +7,7 @@ ENV \
 
 COPY run.sh /root/run.sh
 COPY repo/ /root/repo/
+# COPY ../../../dtcg-web-docker/ /root/repo/dtcg-web/
 
 WORKDIR /root
 ENTRYPOINT ["/root/run.sh"]
